@@ -9,11 +9,10 @@
 <script lang="ts" setup>
 import ApexCharts from 'apexcharts'
 import { useRouter } from 'vue-router';
-import PeopleService, { Creature } from 'src/services/PeopleService';
-import { onMounted, ref } from 'vue';
+import PeopleService from 'src/services/PeopleService';
+import { onMounted } from 'vue';
 
 const router = useRouter()
-const series = ref([] as Creature[])
 
 onMounted(async () => {
   const resp = await Promise.all([PeopleService.getPeople(1), PeopleService.getPeople(2)])
@@ -24,7 +23,6 @@ onMounted(async () => {
       y: v.height
     }
   })
-  console.log(seriesData)
   var options = {
     chart: {
       type: 'bar',
@@ -36,7 +34,7 @@ onMounted(async () => {
       data: seriesData
     }]
   }
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  var chart = new ApexCharts(document.querySelector('#chart'), options);
 
   chart.render();
 })

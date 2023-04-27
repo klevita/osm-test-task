@@ -1,4 +1,4 @@
-import client from "../HTTP/StarWarsApi"
+import client from '../HTTP/StarWarsApi'
 
 export interface PeopleResp {
   count: number
@@ -10,7 +10,7 @@ export interface PeopleResp {
 export interface Creature {
   birth_year: string
   eye_color: string
-  gender: "Male" | "Female"
+  gender: 'Male' | 'Female'
   hair_color: string
   height: number
   mass: number
@@ -21,7 +21,7 @@ export interface Creature {
 export default {
   async getPeople(page = 1): Promise<PeopleResp> {
     try {
-      const resp = await client.get("people?page=" + page)
+      const resp = await client.get('people?page=' + page)
       return resp.data
     } catch (err) {
       return {

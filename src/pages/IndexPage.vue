@@ -30,7 +30,7 @@ const columns = [
     name: 'birth_year',
     label: 'Born',
     align: 'center',
-    field: 'birth_year'
+    field: 'birth_year',
   },
   {
     label: 'Eyes',
